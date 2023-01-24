@@ -23,4 +23,15 @@ class ApplicationController < ActionController::Base
     render ({ :template => "calculation_templates/random_results.html.erb"})
   end
 
+  def blank_square_root_form
+    render ({ :template => "calculation_templates/square_root.html.erb"})
+  end
+
+  def calculate_square_root
+    @number = params.fetch("user_number")
+    @square_root = @number.to_f ** 0.5
+    
+    render ({ :template => "calculation_templates/square_root_results.html.erb"})
+  end
+
 end
